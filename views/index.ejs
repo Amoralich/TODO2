@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Wish</title>
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1><%= date.date %></h1>
+        <h1><%= date.weekday %></h1>
+    </div>
+
+
+    <div class="box">
+        <% for(let i = 0; i < toDoItems.length; i++) { %>
+        <form action="/delete" method="POST">
+           <div class="item">
+            <p><%= toDoItems[i].description %></p>
+           <input name="checkbox" value="<%= toDoItems[i].description %>" type="checkbox"onchange="this.form.submit()">
+           
+        </div>
+    </form>
+    <%} %>
+    
+        <form action="/" method="POST">
+            <input type="text" name="newTask" placeholder="Add New Task">
+            <button type="submit">+</button>
+        </form>
+    </div>
+
+    <footer>
+        <span>created in 2021 &#169 S-R Bružas</span>
+    </footer>
+    
+</body>
+</html>
